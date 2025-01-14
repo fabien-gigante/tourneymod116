@@ -38,7 +38,7 @@ public class UpdateRNGSeedCommand {
         if (!rngStreamGenerator.keySet().contains(rngSeed)) {
             return 1;
         }
-        rngStreamGenerator.setSeed(rngSeed, (new Random()).nextLong());
+        rngStreamGenerator.setSeed(rngSeed, rngStreamGenerator.getSeed(rngSeed) + 1);
         context.getSource().getPlayer().sendMessage(new LiteralText("RNGSeed " + rngSeed + " updated."), true);
         return 0;
     }
